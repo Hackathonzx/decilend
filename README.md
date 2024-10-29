@@ -82,17 +82,20 @@ To run the test cases for the smart contracts:
 npx hardhat test
 
   DeciLend Contracts
+
     ✔ should allow a borrower to create a loan
+
     ✔ should allow a lender to fund a loan
+
     ✔ should allow a borrower to repay a loan
+
     ✔ should update the credit score on repayment
 
 
   4 passing (3s)
 
   Verify your contracts:
-bash
-Copy code
+
 npx hardhat verify --network aiatestnet <contract-address>
 
 # Contributing
