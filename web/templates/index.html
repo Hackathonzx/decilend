@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeciLend</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    nav {
+        background-color: #333;
+        color: #fff;
+        padding: 1em;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    main {
+        padding: 2em;
+    }
+
+    #dashboard {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .panel {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 1em;
+        padding: 1em;
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .panel h2 {
+        margin-top: 0;
+    }
+
+    .panel h3 {
+        margin-bottom: 0.5em;
+    }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#borrowers">Borrowers</a></li>
+            <li><a href="#lenders">Lenders</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="dashboard">
+            <div class="panel" id="borrowers-panel">
+                <h2>Borrowers</h2>
+                <div class="loan-requests">
+                    <h3>Loan Requests</h3>
+                    <!-- Loan requests will be displayed here -->
+                </div>
+                <div class="credit-scores">
+                    <h3>Credit Scores</h3>
+                    <!-- Credit scores will be displayed here -->
+                </div>
+            </div>
+            <div class="panel" id="lenders-panel">
+                <h2>Lenders</h2>
+                <div class="loan-opportunities">
+                    <h3>Loan Opportunities</h3>
+                    <!-- Loan opportunities will be displayed here -->
+                </div>
+                <div class="investment-portfolios">
+                    <h3>Investment Portfolios</h3>
+                    <!-- Investment portfolios will be displayed here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- <script src="scripts.js"></script> -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sample data for demonstration
+        const loanRequests = [
+            { id: 1, amount: 5000, status: 'Pending' },
+            { id: 2, amount: 10000, status: 'Approved' }
+        ];
+
+        const creditScores = [
+            { id: 1, score: 720 },
+            { id: 2, score: 680 }
+        ];
+
+        const loanOpportunities = [
+            { id: 1, amount: 15000, interest: '5%' },
+            { id: 2, amount: 20000, interest: '4.5%' }
+        ];
+
+        const investmentPortfolios = [
+            { id: 1, totalInvested: 50000, returns: '7%' },
+            { id: 2, totalInvested: 30000, returns: '6.5%' }
+        ];
+
+        // Function to render loan requests
+        function renderLoanRequests() {
+            const loanRequestsContainer = document.querySelector('.loan-requests');
+            loanRequestsContainer.innerHTML = loanRequests.map(request => `
+                <div class="loan-request">
+                    <p>Loan ID: ${request.id}</p>
+                    <p>Amount: $${request.amount}</p>
+                    <p>Status: ${request.status}</p>
+                </div>
+            `).join('');
+        }
+
+        // Function to render credit scores
+        function renderCreditScores() {
+            const creditScoresContainer = document.querySelector('.credit-scores');
+            creditScoresContainer.innerHTML = creditScores.map(score => `
+                <div class="credit-score">
+                    <p>Credit Score ID: ${score.id}</p>
+                    <p>Score: ${score.score}</p>
+                </div>
+            `).join('');
+        }
+
+        // Function to render loan opportunities
+        function renderLoanOpportunities() {
+            const loanOpportunitiesContainer = document.querySelector('.loan-opportunities');
+            loanOpportunitiesContainer.innerHTML = loanOpportunities.map(opportunity => `
+                <div class="loan-opportunity">
+                    <p>Opportunity ID: ${opportunity.id}</p>
+                    <p>Amount: $${opportunity.amount}</p>
+                    <p>Interest: ${opportunity.interest}</p>
+                </div>
+            `).join('');
+        }
+
+        // Function to render investment portfolios
+        function renderInvestmentPortfolios() {
+            const investmentPortfoliosContainer = document.querySelector('.investment-portfolios');
+            investmentPortfoliosContainer.innerHTML = investmentPortfolios.map(portfolio => `
+                <div class="investment-portfolio">
+                    <p>Portfolio ID: ${portfolio.id}</p>
+                    <p>Total Invested: $${portfolio.totalInvested}</p>
+                    <p>Returns: ${portfolio.returns}</p>
+                </div>
+            `).join('');
+        }
+
+        // Initial render
+        renderLoanRequests();
+        renderCreditScores();
+        renderLoanOpportunities();
+        renderInvestmentPortfolios();
+    });
+
+    </script>
+</body>
+</html>
